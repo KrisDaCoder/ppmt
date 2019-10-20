@@ -1,0 +1,35 @@
+<div class="container">
+    <a routerLink="/addProjectTask/{{projectIdentifier}}" class="btn btn-primary mb-3">
+        <i class="fa fa-plus-circle"> Create Project Task</i>
+    </a>
+    <br />
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center mb-2">
+                    <div class="card-header bg-secondary text-white">
+                        <h3>TO DO</h3>
+                    </div>
+                </div>
+                <app-project-task *ngFor="let projectTask of toDoProjectTasks" [projectTask]="projectTask"></app-project-task>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center mb-2">
+                    <div class="card-header bg-primary text-white">
+                        <h3>In Progress</h3>
+                    </div>
+                </div>
+                <app-project-task *ngFor="let projectTask of inProgressProjectTasks" [projectTask]="projectTask"></app-project-task>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center mb-2">
+                    <div class="card-header bg-success text-white">
+                        <h3>Done</h3>
+                    </div>
+                </div>
+                <app-project-task *ngFor="let projectTask of doneProjectsTasks" [projectTask]="projectTask"></app-project-task>
+            </div>
+        </div>
+    </div>
+</div>

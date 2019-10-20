@@ -1,0 +1,46 @@
+<div class="add-PBI">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto">
+        <a routerLink="/projectBoard/{{projectIdentifier}}" class="btn btn-light">
+          Back to Project Board
+        </a>
+        <h4 class="display-4 text-center">Update Project Task</h4>
+        <p class="lead text-center">{{ project.projectName }} {{ project.projectIdentifier }}</p>
+        <form [formGroup]="updateProjectTaskForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input formControlName="summary" type="text" class="form-control form-control-lg"
+              [class.is-invalid]="errors.summary" name="summary" placeholder="Project Task summary" />
+            <div *ngIf="errors.summary" class="invalid-feedback">{{ errors.summary }}</div>
+          </div>
+          <div class="form-group">
+            <textarea formControlName="acceptanceCriteria" class="form-control form-control-lg"
+              placeholder="Acceptance Criteria" name="acceptanceCriteria"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input formControlName="dueDate" id="dueDate" type="date" class="form-control form-control-lg"
+              name="dueDate" />
+          </div>
+          <div class="form-group">
+            <label for="priority">Select Priority</label>
+            <select id="priority" class="form-control form-control-lg" name="priority" formControlName="priority">
+              <option value="1">High</option>
+              <option value="2">Medium</option>
+              <option value="3">Low</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="status">Select Status</label>
+            <select id="status" formControlName="status" class="form-control form-control-lg" name="status">
+              <option value="TO_DO">TO DO</option>
+              <option value="IN_PROGRESS">IN PROGRESS</option>
+              <option value="DONE">DONE</option>
+            </select>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block mt-4" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

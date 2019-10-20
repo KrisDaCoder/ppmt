@@ -1,0 +1,34 @@
+<div class="project">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 m-auto">
+              <h5 class="display-4 text-center">Create Project form</h5>
+              <hr />
+              <form [formGroup]="createProjectForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <input type="text" class="form-control form-control-lg" [class.is-invalid]="errors.projectName" placeholder="Project Name" formControlName="projectName" />
+                      <div *ngIf="errors.projectName" class="invalid-feedback">{{ errors.projectName }}</div>
+                    </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control form-control-lg" [class.is-invalid]="errors.projectIdentifier" placeholder="Unique Project ID" formControlName="projectIdentifier" />
+                      <div *ngIf="errors.projectIdentifier" class="invalid-feedback">{{ errors.projectIdentifier }}</div>
+                  </div>
+                  <div class="form-group">
+                      <textarea class="form-control form-control-lg" [class.is-invalid]="errors.description" placeholder="Project Description" formControlName="description"></textarea>
+                      <div *ngIf="errors.description" class="invalid-feedback">{{ errors.description }}</div>
+                  </div>
+                  <h6>Start Date</h6>
+                  <div class="form-group">
+                      <input type="date" class="form-control form-control-lg" formControlName="startDate"/>
+                  </div>
+                  <h6>Estimated End Date</h6>
+                  <div class="form-group">
+                      <input type="date" class="form-control form-control-lg" formControlName="endDate" />
+                  </div>
+                  
+                  <input type="submit" class="btn btn-primary btn-block mt-4" [disabled]="!createProjectForm.valid" />
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

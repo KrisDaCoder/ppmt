@@ -1,0 +1,18 @@
+<div class="card mb-1 bg-light">
+    <div class="card-header text-primary {{ priorityClass }}">
+        ID: {{projectTask.projectSequence}} -- Priority: {{ priorityString }}
+    </div>
+    <div class="card-body bg-light">
+        <h5 class="card-title">{{ projectTask.summary }}</h5>
+        <p class="card-text text-truncate ">
+            {{ projectTask.acceptanceCriteria }}
+        </p>
+        <a routerLink="/updateProjectTask/{{ projectTask.projectIdentifier }}/{{ projectTask.projectSequence }}" class="btn btn-primary">
+            View / Update
+        </a>
+
+        <button class="btn btn-danger ml-4" (click)="confirmDeletion()">
+            Delete
+        </button>
+    </div>
+</div>
